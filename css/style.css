@@ -73,6 +73,26 @@ button { font-family: inherit; }
   -webkit-text-stroke: 1.5px var(--cream);
 }
 
+.brand-name-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 16px;
+  flex-wrap: nowrap;
+}
+
+.brand-logo {
+  width: 110px !important;
+  height: 110px !important;
+  min-width: 110px !important;
+  min-height: 110px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  border: 3px solid var(--gold) !important;
+  flex-shrink: 0 !important;
+  display: block !important;
+}
+
 /* ===== Category nav ===== */
 .cat-nav {
   position: sticky;
@@ -280,10 +300,195 @@ button { font-family: inherit; }
 
 /* ===== Footer ===== */
 .site-footer {
-  text-align: center;
+  margin-top: 48px;
+  background: linear-gradient(180deg, transparent 0%, rgba(224,32,42,0.06) 100%);
+  border-top: 2px solid var(--red);
+  padding: 0 0 96px;
   color: var(--ink-dim);
+  font-size: 0.85rem;
+}
+
+.footer-inner {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 40px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+/* Marca */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.footer-logo {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--gold);
+  opacity: 0.9;
+}
+
+.footer-tagline {
+  margin: 0;
   font-size: 0.78rem;
-  padding: 24px 16px 100px;
+  color: var(--ink-dim);
+  letter-spacing: 0.04em;
+  font-style: italic;
+}
+
+/* Divisor decorativo */
+.footer-divider {
+  width: 100%;
+  height: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--red) 0 6px,
+    transparent 6px 12px
+  );
+  opacity: 0.4;
+}
+
+/* Secciones internas */
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+}
+
+.footer-section-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+/* Botón de mapa */
+.footer-map-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 22px;
+  border-radius: 999px;
+  background: var(--panel);
+  border: 1px solid var(--red);
+  color: var(--cream);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.18s ease, border-color 0.18s ease, transform 0.12s ease;
+}
+.footer-map-btn:hover,
+.footer-map-btn:focus-visible {
+  background: var(--red);
+  border-color: var(--red);
+  color: #fff;
+  transform: translateY(-2px);
+}
+.footer-map-btn svg {
+  flex-shrink: 0;
+}
+
+/* Redes sociales */
+.footer-social {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--ink-dim);
+  transition: background 0.18s ease, border-color 0.18s ease,
+              color 0.18s ease, transform 0.12s ease;
+}
+.social-link:hover,
+.social-link:focus-visible {
+  transform: translateY(-2px);
+  color: #fff;
+}
+
+/* Instagram */
+.social-link--instagram:hover,
+.social-link--instagram:focus-visible {
+  background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+  border-color: transparent;
+}
+
+/* TikTok */
+.social-link--tiktok:hover,
+.social-link--tiktok:focus-visible {
+  background: #010101;
+  border-color: #69c9d0;
+  color: #fff;
+}
+
+/* Pie inferior */
+.footer-bottom {
+  width: 100%;
+  text-align: center;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+.footer-bottom p {
+  margin: 0;
+  font-size: 0.72rem;
+  color: var(--ink-dim);
+  opacity: 0.6;
+}
+
+/* Responsivo: layout en fila en pantallas grandes */
+@media (min-width: 640px) {
+  .footer-inner {
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px 48px;
+  }
+
+  .footer-brand {
+    flex: 0 0 auto;
+  }
+
+  .footer-divider {
+    display: none;
+  }
+
+  .footer-section {
+    flex: 0 0 auto;
+    align-items: flex-start;
+    width: auto;
+  }
+
+  .footer-bottom {
+    flex: 1 1 100%;
+  }
 }
 
 /* ===== Floating cart button ===== */
@@ -562,4 +767,60 @@ button { font-family: inherit; }
 
 @media (min-width: 560px) {
   .item-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ===== Banner de instalación iOS ===== */
+#ios-install-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px calc(14px + env(safe-area-inset-bottom));
+  background: var(--charcoal);
+  border-top: 2px solid var(--red);
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.5);
+  animation: slide-up 0.3s ease;
+}
+
+@keyframes slide-up {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+
+.ios-banner-text {
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+.ios-banner-text strong {
+  color: var(--gold);
+}
+
+.ios-banner-close {
+  flex: 0 0 auto;
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--ink-dim);
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  line-height: 1;
+}
+.ios-banner-close:hover { border-color: var(--red); color: var(--cream); }
+
+/* Cuando la app está instalada (standalone), ocultar el cart-fab un poco más arriba */
+@media (display-mode: standalone) {
+  .cart-fab {
+    bottom: calc(18px + env(safe-area-inset-bottom));
+  }
 }
