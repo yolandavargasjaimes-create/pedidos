@@ -105,8 +105,7 @@ export const buildOrderReceipt = ({ cart, restaurantName, customerName, customer
 
   receipt.left();
   for (const { item, qty } of cart.lines) {
-    receipt.big(true).bold(true).line(`${qty} x ${item.name}`).bold(false).big(false);
-    receipt.big(true).row("", currencyPlain(item.price * qty)).big(false);
+    receipt.bold(true).row(`${qty} x ${item.name}`, currencyPlain(item.price * qty)).bold(false);
   }
 
   receipt.rule("-");
