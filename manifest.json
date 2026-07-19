@@ -1,0 +1,28 @@
+{
+  "name": "Chespirito Burger's",
+  "short_name": "Chespirito",
+  "description": "Arma tu pedido y lo enviamos directo por WhatsApp.",
+  "start_url": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0d0d0d",
+  "theme_color": "#e0202a",
+  "lang": "es",
+  "scope": "./",
+  "icons": [
+    {
+      "src": "./assets/images/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./assets/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [],
+  "categories": ["food", "shopping"]
+}
