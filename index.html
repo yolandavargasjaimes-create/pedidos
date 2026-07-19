@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Chespirito Burger's · Pedidos</title>
+  <meta name="description" content="Arma tu pedido y lo enviamos directo por WhatsApp." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="brand">
+      <span class="brand-eyebrow">★ Pedidos directo por WhatsApp ★</span>
+      <h1 class="brand-title">Chespirito<span>Burger's</span></h1>
+    </div>
+  </header>
+
+  <nav class="cat-nav" id="cat-nav" aria-label="Categorías del menú">
+    <!-- se llena por JS -->
+  </nav>
+
+  <main id="menu-root" class="menu-root">
+    <p class="loading-msg" id="loading-msg">Cargando el menú…</p>
+  </main>
+
+  <footer class="site-footer">
+    <p>Chespirito Burger's · Pedido sin registro, sin cuentas, sin guardar tus datos.</p>
+  </footer>
+
+  <!-- Botón flotante del carrito -->
+  <button id="cart-fab" class="cart-fab" aria-haspopup="dialog" aria-expanded="false" aria-controls="cart-drawer">
+    <span class="cart-fab-icon" aria-hidden="true">🧾</span>
+    <span class="cart-fab-label">Mi pedido</span>
+    <span class="cart-fab-count" id="cart-fab-count">0</span>
+  </button>
+
+  <!-- Carrito estilo tiquete -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+  <aside class="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title" aria-hidden="true">
+    <div class="ticket">
+      <div class="ticket-perf ticket-perf--top" aria-hidden="true"></div>
+
+      <div class="ticket-head">
+        <h2 id="cart-title">Tu pedido</h2>
+        <button id="cart-close" class="icon-btn" aria-label="Cerrar carrito">✕</button>
+      </div>
+
+      <ul class="cart-items" id="cart-items">
+        <!-- se llena por JS -->
+      </ul>
+
+      <p class="cart-empty" id="cart-empty">Aún no has agregado nada del menú.</p>
+
+      <div class="cart-form">
+        <label class="field">
+          <span>Nombre (opcional)</span>
+          <input type="text" id="customer-name" placeholder="¿A nombre de quién?" autocomplete="off" />
+        </label>
+        <label class="field">
+          <span>Dirección / nota (opcional)</span>
+          <textarea id="customer-note" rows="2" placeholder="Barrio, dirección, indicaciones…"></textarea>
+        </label>
+        <p class="field-hint">Esto solo se incluye en el mensaje de WhatsApp. No se guarda en ningún servidor.</p>
+      </div>
+
+      <div class="ticket-perf" aria-hidden="true"></div>
+
+      <div class="cart-total">
+        <span>Total</span>
+        <strong id="cart-total-value">$0</strong>
+      </div>
+
+      <div class="cart-actions">
+        <button id="cart-clear" class="btn btn-ghost">Vaciar</button>
+        <button id="cart-print" class="btn btn-outline" hidden>
+          🖨️ Imprimir
+        </button>
+        <button id="cart-send" class="btn btn-primary" disabled>
+          Enviar pedido por WhatsApp
+        </button>
+      </div>
+
+      <p class="print-hint" id="print-hint" hidden>
+        Imprime con la app gratuita <strong>RawBT</strong> (Play Store) y tu
+        impresora térmica ya emparejada por Bluetooth en Ajustes del celular.
+      </p>
+    </div>
+  </aside>
+
+  <!-- plantilla de tarjeta de producto -->
+  <template id="item-card-template">
+    <article class="item-card">
+      <div class="item-thumb">
+        <img class="item-img" alt="" loading="lazy" decoding="async" />
+      </div>
+      <div class="item-card-main">
+        <div class="item-card-head">
+          <h3 class="item-name"></h3>
+          <span class="item-badge"></span>
+        </div>
+        <p class="item-desc"></p>
+      </div>
+      <div class="item-card-footer">
+        <span class="item-price"></span>
+        <div class="qty-control">
+          <button type="button" class="qty-btn qty-minus" aria-label="Quitar uno">−</button>
+          <span class="qty-value">0</span>
+          <button type="button" class="qty-btn qty-plus" aria-label="Agregar uno">+</button>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
