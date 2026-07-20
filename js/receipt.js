@@ -67,12 +67,32 @@ class ReceiptBuilder {
 
   line(text = "") { return this.#push(textToBytes(`${text}\n`)); }
 
+  /** Igual que line(), pero sin el salto final: útil para mezclar tamaños en una misma fila. */
+  text(text = "") { return this.#push(textToBytes(text)); }
+
   rule(char = "-") { return this.line(char.repeat(PRINTER_WIDTH_CHARS)); }
 
   /** Línea de dos columnas: texto a la izquierda, valor a la derecha. */
   row(left, right) {
     const space = Math.max(1, PRINTER_WIDTH_CHARS - left.length - right.length);
     return this.line(`${left}${" ".repeat(space)}${right}`);
+  }
+
+  /**
+   * Igual que row(), pero el texto de la izquierda sale en tamaño grande
+   * (doble ancho/alto, como el título) y el valor de la derecha en tamaño
+   * normal. El modo grande ocupa 2 columnas por carácter, así que el
+   * padding se calcula con ese ancho para que el precio siga cuadrando
+   * a la derecha.
+   */
+  rowBig(left, right) {
+    const leftColumns = left.length * 2;
+    const space = Math.max(1, PRINTER_WIDTH_CHARS - leftColumns - right.length);
+
+    return this.big(true)
+      .text(left)
+      .big(false)
+      .line(`${" ".repeat(space)}${right}`);
   }
 
   toBytes() { return Uint8Array.from(this.#bytes); }
@@ -105,7 +125,7 @@ export const buildOrderReceipt = ({ cart, restaurantName, customerName, customer
 
   receipt.left();
   for (const { item, qty } of cart.lines) {
-    receipt.bold(true).row(`${qty} x ${item.name}`, currencyPlain(item.price * qty)).bold(false);
+    receipt.bold(true).rowBig(`${qty} x ${item.name}`, currencyPlain(item.price * qty)).bold(false);
   }
 
   receipt.rule("-");
