@@ -114,6 +114,8 @@ const els = {
 
   fab: document.getElementById("cart-fab"),
   fabCount: document.getElementById("cart-fab-count"),
+  headerCartBtn: document.getElementById("header-cart-btn"),
+  headerCartCount: document.getElementById("header-cart-count"),
 
   overlay: document.getElementById("cart-overlay"),
   drawer: document.getElementById("cart-drawer"),
@@ -201,7 +203,9 @@ const renderItemCard = (item, { onQtyChange, qtyFor }) => {
 };
 
 const renderCart = (cart) => {
-  els.fabCount.textContent = String(cart.count);
+  const countStr = String(cart.count);
+  els.fabCount.textContent = countStr;
+  els.headerCartCount.textContent = countStr;
   els.cartTotal.textContent = currency.format(cart.total);
   els.sendBtn.disabled = cart.count === 0;
   els.printBtn.disabled = cart.count === 0;
@@ -233,6 +237,7 @@ const openCart = () => {
   els.overlay.classList.add("is-open");
   els.drawer.setAttribute("aria-hidden", "false");
   els.fab.setAttribute("aria-expanded", "true");
+  els.headerCartBtn.setAttribute("aria-expanded", "true");
 };
 
 const closeCart = () => {
@@ -240,6 +245,7 @@ const closeCart = () => {
   els.overlay.classList.remove("is-open");
   els.drawer.setAttribute("aria-hidden", "true");
   els.fab.setAttribute("aria-expanded", "false");
+  els.headerCartBtn.setAttribute("aria-expanded", "false");
 };
 
 const init = async () => {
@@ -281,6 +287,7 @@ const init = async () => {
   }
 
   els.fab.addEventListener("click", openCart);
+  els.headerCartBtn.addEventListener("click", openCart);
   els.closeBtn.addEventListener("click", closeCart);
   els.overlay.addEventListener("click", closeCart);
   document.addEventListener("keydown", (event) => {
