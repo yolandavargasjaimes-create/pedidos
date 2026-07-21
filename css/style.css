@@ -272,8 +272,7 @@ button { font-family: inherit; }
 
 .item-name {
   margin: 0;
-  font-size: 1.15rem;
-  line-height: 1.25;
+  font-size: 1.02rem;
   font-weight: 700;
   color: var(--red);
 }
@@ -291,9 +290,9 @@ button { font-family: inherit; }
 .item-badge:empty { display: none; }
 
 .item-desc {
-  margin: 5px 0 0;
-  font-size: 0.95rem;
-  line-height: 1.45;
+  margin: 4px 0 0;
+  font-size: 0.82rem;
+  line-height: 1.35;
   color: var(--ink-dim);
 }
 
