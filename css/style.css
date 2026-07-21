@@ -213,10 +213,14 @@ button { font-family: inherit; }
 
 /* ===== Item card ===== */
 .item-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 14px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    "thumb head"
+    "thumb footer"
+    "desc  desc";
+  column-gap: 14px;
+  row-gap: 6px;
   background: var(--panel);
   border: 1px solid var(--line);
   border-left: 4px solid var(--red);
@@ -230,7 +234,7 @@ button { font-family: inherit; }
 
 /* Miniatura de producto */
 .item-thumb {
-  flex: 0 0 auto;
+  grid-area: thumb;
   width: 76px;
   height: 76px;
   border-radius: 10px;
@@ -261,18 +265,22 @@ button { font-family: inherit; }
   display: none;
 }
 
-.item-card-main { flex: 1; min-width: 0; }
+.item-card-main { display: contents; }
 
 .item-card-head {
+  grid-area: head;
+  align-self: start;
   display: flex;
   align-items: baseline;
   gap: 8px;
   flex-wrap: wrap;
+  min-width: 0;
 }
 
 .item-name {
   margin: 0;
-  font-size: 1.02rem;
+  font-size: 1.15rem;
+  line-height: 1.25;
   font-weight: 700;
   color: var(--red);
 }
@@ -290,21 +298,24 @@ button { font-family: inherit; }
 .item-badge:empty { display: none; }
 
 .item-desc {
+  grid-area: desc;
   margin: 4px 0 0;
-  font-size: 0.82rem;
-  line-height: 1.35;
+  font-size: 0.95rem;
+  line-height: 1.45;
   color: var(--ink-dim);
 }
 
 .item-card-footer {
-  flex: 0 0 auto;
+  grid-area: footer;
+  align-self: start;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
   gap: 8px;
 }
 
 .item-price {
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--cream);
   font-variant-numeric: tabular-nums;
