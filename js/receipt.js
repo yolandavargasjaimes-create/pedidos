@@ -131,7 +131,7 @@ export const buildOrderReceipt = ({ cart, restaurantName, customerName, customer
   receipt.rule("-");
   receipt.bold(true).row("TOTAL", currencyPlain(cart.total)).bold(false);
   receipt.rule("=");
-  receipt.center().line("___________________");
+  // receipt.center().line("Gracias por tu pedido");
   receipt.feed(3).cut();
 
   return receipt.toBase64();
