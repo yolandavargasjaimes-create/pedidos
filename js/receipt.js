@@ -132,7 +132,7 @@ export const buildOrderReceipt = ({ cart, restaurantName, customerName, customer
   receipt.bold(true).row("TOTAL", currencyPlain(cart.total)).bold(false);
   receipt.rule("=");
   // receipt.center().line("Gracias por tu pedido");
-  // receipt.feed(3).cut();
+  receipt.feed(3).cut();
 
   return receipt.toBase64();
 };
