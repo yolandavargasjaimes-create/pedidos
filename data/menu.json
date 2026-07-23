@@ -1,17 +1,17 @@
 {
   "restaurant": {
-    "name": "Chespirito Burger's",
+    "name": "Stay Fresko",
     "phone": "573134304522",
-    "instagram": "burgerschespirito"
+    "instagram": "stayfresko"
   },
   "categories": [
     {
-      "id": "hamburguesas",
-      "name": "Hamburguesas",
+      "id": "entradas",
+      "name": "Entradas",
       "items": [
         {
-          "id": "h-sencilla",
-          "name": "Sencilla",
+          "id": "p-enchuladas",
+          "name": "Papitas Enchuladas",
           "price": 13000,
           "description": "Pan brioche, lechuga, cebolla, tomate, carne, jamón, queso, papa fósforito, papa a la francesa",
           "image": "assets/images/h-sencilla.jpg"
@@ -29,176 +29,271 @@
           "price": 17000,
           "description": "Pan brioche, lechuga, aros de cebolla, tomate, carne, jamón, queso, chorizo paisa, picante, salsa picante",
           "image": "assets/images/h-chavito.jpg"
-        },
-        {
-          "id": "h-patacon",
-          "name": "Patacón",
-          "price": 18000,
-          "description": "Patacón x2, lechuga, aros de cebolla, tomate, carne, jamón, queso, filete pechuga, fósforito, maduro, huevo de codorniz, papa a la francesa",
-          "image": "assets/images/h-patacon.jpg"
-        },
-        {
-          "id": "h-doble-carne",
-          "name": "Doble carne",
-          "price": 19000,
-          "description": "Pan brioche, lechuga, cebolla, tomate, carne x2, queso x2, pollo desmechado, papa fósforito, huevo de codorniz, papa a la francesa",
-          "image": "assets/images/h-doble-carne.jpg"
-        },
-        {
-          "id": "h-chapatin",
-          "name": "Chapatín",
-          "price": 18000,
-          "description": "Pan brioche, lechuga, cebolla, tomate, carne, jamón, queso, arepa, tocineta, huevos de codorniz, papa fósforito, papa a la francesa",
-          "image": "assets/images/h-chapatin.jpg"
         }
       ]
     },
     {
-      "id": "especiales",
-      "name": "Chespirito Burger's",
+      "id": "variedades_de_pizza",
+      "name": "Variedades de Pizza",
       "items": [
         {
-          "id": "e-campeona",
-          "name": "La campeona AB",
-          "price": 20000,
-          "description": "Pan brioche, lechuga, cebolla, tomate, carne, jamón, queso, carne desmechada, maíz, salsa BBQ, arepa maíz, papa a la francesa",
-          "badge": "Especial",
-          "image": "assets/images/e-campeona.jpg"
+          "id": "p-tropical",
+          "name": "TROPICAL",
+          "description": "Queso, piña, ciruelas, brevas y cerezas",
+          "image": "assets/images/e-campeona.jpg",
+          "sizes": [
+            { "id": "porcion", "label": "Porción", "price": 8000 },
+            { "id": "22cm", "label": "22cm", "price": 18000 },
+            { "id": "30cm", "label": "30cm", "price": 20000 },
+            { "id": "40cm", "label": "40cm", "price": 26000 }
+          ]
         },
         {
-          "id": "e-mega",
-          "name": "Mega",
-          "price": 23000,
-          "description": "Pan brioche, lechuga, cebolla, tomate, carne, jamón, queso, fósforito, pechuga madura, tocineta, huevo de codorniz, papa fósforito, papa a la francesa",
-          "image": "assets/images/e-mega.jpg"
+          "id": "p-super",
+          "name": "SUPER",
+          "description": "Queso, carne molida, maíz tierno, tocineta y salsa BBQ",
+          "image": "assets/images/e-mega.jpg",
+          "sizes": [
+            { "id": "porcion", "label": "Porción", "price": 9000 },
+            { "id": "22cm", "label": "22cm", "price": 20000 },
+            { "id": "30cm", "label": "30cm", "price": 23000 },
+            { "id": "40cm", "label": "40cm", "price": 29000 }
+          ]
+        },
+        {
+          "id": "p-arizona",
+          "name": "ARIZONA",
+          "description": "Queso, jamón, salami, pollo, cabano, tocineta, cebolla y pimentón",
+          "image": "assets/images/e-mega.jpg",
+          "sizes": [
+            { "id": "porcion", "label": "Porción", "price": 9000 },
+            { "id": "22cm", "label": "22cm", "price": 20000 },
+            { "id": "30cm", "label": "30cm", "price": 23000 },
+            { "id": "40cm", "label": "40cm", "price": 29000 }
+          ]
+        },
+        {
+          "id": "p-d_la_casa",
+          "name": "D LA CASA",
+          "description": "Queso, jamón, salami, pollo, cabano, tocineta, cebolla y pimentón",
+          "image": "assets/images/e-mega.jpg",
+          "sizes": [
+            { "id": "porcion", "label": "Porción", "price": 9000 },
+            { "id": "22cm", "label": "22cm", "price": 20000 },
+            { "id": "30cm", "label": "30cm", "price": 23000 },
+            { "id": "40cm", "label": "40cm", "price": 29000 }
+          ]
+        },
+        {
+          "id": "p-colombiana",
+          "name": "COLOMBIANA",
+          "description": "Queso, jamón, salami, pollo, cabano, tocineta, cebolla y pimentón",
+          "image": "assets/images/e-mega.jpg",
+          "sizes": [
+            { "id": "porcion", "label": "Porción", "price": 9000 },
+            { "id": "22cm", "label": "22cm", "price": 20000 },
+            { "id": "30cm", "label": "30cm", "price": 23000 },
+            { "id": "40cm", "label": "40cm", "price": 29000 }
+          ]
+        },
+        {
+          "id": "p-criolla",
+          "name": "CRIOLLA",
+          "description": "Queso, carne desmechada, cabano, maíz tierno, tocineta y maduritos",
+          "image": "assets/images/e-mega.jpg",
+          "sizes": [
+            { "id": "porcion", "label": "Porción", "price": 9000 },
+            { "id": "22cm", "label": "22cm", "price": 20000 },
+            { "id": "30cm", "label": "30cm", "price": 23000 },
+            { "id": "40cm", "label": "40cm", "price": 29000 }
+          ]
+        },
+        {
+          "id": "p-swet",
+          "name": "SWET BACON",
+          "description": "Queso, Pepperoni, trocitos de piña y tocineta crispy",
+          "image": "assets/images/e-mega.jpg",
+          "sizes": [
+            { "id": "porcion", "label": "Porción", "price": 9000 },
+            { "id": "22cm", "label": "22cm", "price": 20000 },
+            { "id": "30cm", "label": "30cm", "price": 23000 },
+            { "id": "40cm", "label": "40cm", "price": 29000 }
+          ]
+        },
+        {
+          "id": "p-suprema",
+          "name": "SUPREMA",
+          "description": "Queso, carne desmechada, cabano, maíz tierno, tocineta y maduritos",
+          "image": "assets/images/e-mega.jpg",
+          "sizes": [
+            { "id": "porcion", "label": "Porción", "price": 9000 },
+            { "id": "22cm", "label": "22cm", "price": 20000 },
+            { "id": "30cm", "label": "30cm", "price": 23000 },
+            { "id": "40cm", "label": "40cm", "price": 29000 }
+          ]
+        },
+        {
+          "id": "p-porcheta",
+          "name": "PORCHETA",
+          "description": "Queso, carne desmechada, chorizo santarosano, mermelada de tocineta y queso crema",
+          "image": "assets/images/e-mega.jpg",
+          "sizes": [
+            { "id": "porcion", "label": "Porción", "price": 9000 },
+            { "id": "22cm", "label": "22cm", "price": 20000 },
+            { "id": "30cm", "label": "30cm", "price": 23000 },
+            { "id": "40cm", "label": "40cm", "price": 29000 }
+          ]
         }
       ]
     },
     {
-      "id": "perros",
-      "name": "Perros calientes",
+      "id": "clasicas",
+      "name": "Pizzas Clásicas",
       "items": [
         {
-          "id": "p-sencillo",
-          "name": "Perro sencillo",
-          "price": 13000,
-          "description": "Pan brioche, lechuga, cebolla, fósforito, salchicha long, queso, papa a la francesa",
-          "image": "assets/images/p-sencillo.jpg"
+          "id": "p-hawaiana",
+          "name": "HAWAIANA",
+          "description": "Queso, piña y jamón",
+          "image": "assets/images/p-sencillo.jpg",
+          "sizes": [
+            { "id": "porcion", "label": "Porción", "price": 6000 },
+            { "id": "22cm", "label": "22cm", "price": 11000 },
+            { "id": "30cm", "label": "30cm", "price": 13000 },
+            { "id": "40cm", "label": "40cm", "price": 17000 }
+          ]
         },
         {
-          "id": "p-chompiperro",
-          "name": "Chompiperro",
-          "price": 18000,
-          "description": "Pan brioche, lechuga, cebolla, papa fósforito, salchicha long, pollo desmechado, maíz, queso, tocineta, huevo de codorniz, papa a la francesa",
-          "image": "assets/images/p-chompiperro.jpg"
+          "id": "p-napolitana",
+          "name": "NAPOLITANA",
+          "description": "Queso, tomate y orégano",
+          "image": "assets/images/p-chompiperro.jpg",
+          "sizes": [
+            { "id": "porcion", "label": "Porción", "price": 8000 },
+            { "id": "22cm", "label": "22cm", "price": 15000 },
+            { "id": "30cm", "label": "30cm", "price": 18000 },
+            { "id": "40cm", "label": "40cm", "price": 23000 }
+          ]
         },
         {
-          "id": "p-americano",
-          "name": "Perro Americano",
+          "id": "p-junior",
+          "name": "JUNIOR",
           "price": 19000,
           "description": "Pan brioche, lechuga, aros de cebolla, papa fósforito, salchicha americana, pollo desmechado, queso, huevo de codorniz, papa a la francesa",
           "image": "assets/images/p-americano.jpg"
+        },
+        {
+          "id": "p-velena",
+          "name": "VELEÑA",
+          "description": "Queso y bocadillo",
+          "image": "assets/images/p-americano.jpg",
+          "sizes": [
+            { "id": "porcion", "label": "Porción", "price": 8000 },
+            { "id": "22cm", "label": "22cm", "price": 16000 },
+            { "id": "30cm", "label": "30cm", "price": 19000 },
+            { "id": "40cm", "label": "40cm", "price": 24000 }
+          ]
+        },
+        {
+          "id": "p-pollo",
+          "name": "POLLO CHAMPIÑON",
+          "description": "Queso, champiñón y pollo",
+          "image": "assets/images/p-americano.jpg",
+          "sizes": [
+            { "id": "porcion", "label": "Porción", "price": 8000 },
+            { "id": "22cm", "label": "22cm", "price": 16000 },
+            { "id": "30cm", "label": "30cm", "price": 19000 },
+            { "id": "40cm", "label": "40cm", "price": 24000 }
+          ]
+        },
+        {
+          "id": "p-carnes",
+          "name": "CARNES",
+          "description": "Queso, salami, jamón y cábano",
+          "image": "assets/images/p-americano.jpg",
+          "sizes": [
+            { "id": "porcion", "label": "Porción", "price": 8000 },
+            { "id": "22cm", "label": "22cm", "price": 16000 },
+            { "id": "30cm", "label": "30cm", "price": 19000 },
+            { "id": "40cm", "label": "40cm", "price": 24000 }
+          ]
         }
       ]
     },
     {
-      "id": "la-perra",
-      "name": "La perra",
+      "id": "tradicionales",
+      "name": "Tradicionales",
       "items": [
         {
-          "id": "lp-la-perra",
-          "name": "La perra",
-          "price": 22000,
-          "description": "Pan brioche, cebolla grille, carne molida, madurito, tocineta, chorizo paisa, queso costeño, queso mozzarella, huevitos, papa a la francesa",
-          "image": "assets/images/lp-la-perra.jpg"
-        }
-      ]
-    },
-    {
-      "id": "papas",
-      "name": "Papas locas",
-      "items": [
-        {
-          "id": "pl-papas-locas",
-          "name": "Papas locas",
-          "price": 23000,
-          "description": "Papa a la francesa, salchicha, chorizo, pollo desmechado, queso costeño, maíz, aros de cebolla, huevos de codorniz, salsas",
-          "image": "assets/images/pl-papas-locas.jpg"
-        }
-      ]
-    },
-    {
-      "id": "plato",
-      "name": "Plato especial",
-      "items": [
-        {
-          "id": "pe-plato-especial",
-          "name": "Plato especial",
-          "price": 24000,
-          "description": "Pechuga a la plancha 200 gr a la francesa, ensalada de tomate, lechuga y cebolla, más vinagreta",
-          "image": "assets/images/pe-plato-especial.jpg"
-        }
-      ]
-    },
-    {
-      "id": "adicionales",
-      "name": "Adicionales",
-      "items": [
-        {
-          "id": "a-carne",
-          "name": "Carne",
-          "price": 5000,
-          "description": "Adicional",
-          "image": "assets/images/a-carne.jpg"
+          "id": "p-mixta",
+          "name": "MIXTA",
+          "description": "Queso, jamón, salami, pollo y piña",
+          "image": "assets/images/lp-la-perra.jpg",
+          "sizes": [
+            { "id": "porcion", "label": "Porción", "price": 9000 },
+            { "id": "22cm", "label": "22cm", "price": 19000 },
+            { "id": "30cm", "label": "30cm", "price": 22000 },
+            { "id": "40cm", "label": "40cm", "price": 28000 }
+          ]
         },
         {
-          "id": "a-pechuga",
-          "name": "Pechuga",
-          "price": 4000,
-          "description": "Adicional",
-          "image": "assets/images/a-pechuga.jpg"
+          "id": "p-pollo",
+          "name": "POLLO TOCINETA",
+          "description": "Queso, pollo y tocineta",
+          "image": "assets/images/lp-la-perra.jpg",
+          "sizes": [
+            { "id": "porcion", "label": "Porción", "price": 9000 },
+            { "id": "22cm", "label": "22cm", "price": 19000 },
+            { "id": "30cm", "label": "30cm", "price": 22000 },
+            { "id": "40cm", "label": "40cm", "price": 28000 }
+          ]
         },
         {
-          "id": "a-tocineta",
-          "name": "Tocineta",
-          "price": 3000,
-          "description": "Adicional",
-          "image": "assets/images/a-tocineta.jpg"
+          "id": "p-italiana",
+          "name": "ITALIANA",
+          "description": "Queso, carne desmechada, salami, tomate, pimentón y picante",
+          "image": "assets/images/lp-la-perra.jpg",
+          "sizes": [
+            { "id": "porcion", "label": "Porción", "price": 9000 },
+            { "id": "22cm", "label": "22cm", "price": 19000 },
+            { "id": "30cm", "label": "30cm", "price": 22000 },
+            { "id": "40cm", "label": "40cm", "price": 28000 }
+          ]
         },
         {
-          "id": "a-papa-francesa",
-          "name": "Papa a la francesa",
-          "price": 7000,
-          "description": "Adicional",
-          "image": "assets/images/a-papa-francesa.jpg"
+          "id": "p-mexicana",
+          "name": "MEXICANA",
+          "description": "Queso, carne molida, nachos, cebolla, pimentón, perejil y picante",
+          "image": "assets/images/lp-la-perra.jpg",
+          "sizes": [
+            { "id": "porcion", "label": "Porción", "price": 9000 },
+            { "id": "22cm", "label": "22cm", "price": 19000 },
+            { "id": "30cm", "label": "30cm", "price": 22000 },
+            { "id": "40cm", "label": "40cm", "price": 28000 }
+          ]
         },
         {
-          "id": "a-chorizo",
-          "name": "Chorizo",
-          "price": 2000,
-          "description": "Adicional",
-          "image": "assets/images/a-chorizo.jpg"
+          "id": "p-vegetariana",
+          "name": "VEGETARIANA",
+          "description": "Queso, champiñón, tomate, cebolla, pimentón, perejil y finas hierbas",
+          "image": "assets/images/lp-la-perra.jpg",
+          "sizes": [
+            { "id": "porcion", "label": "Porción", "price": 9000 },
+            { "id": "22cm", "label": "22cm", "price": 19000 },
+            { "id": "30cm", "label": "30cm", "price": 22000 },
+            { "id": "40cm", "label": "40cm", "price": 28000 }
+          ]
         },
         {
-          "id": "a-huevitos",
-          "name": "Huevitos",
-          "price": 500,
-          "description": "Adicional",
-          "image": "assets/images/a-huevitos.jpg"
-        },
-        {
-          "id": "a-salchicha",
-          "name": "Salchicha",
-          "price": 4000,
-          "description": "Adicional",
-          "image": "assets/images/a-salchicha.jpg"
-        },
-        {
-          "id": "a-queso-costeno",
-          "name": "Queso costeño",
-          "price": 2000,
-          "description": "Adicional",
-          "image": "assets/images/a-queso-costeno.jpg"
+          "id": "p-kentoky",
+          "name": "KENTOKY",
+          "description": "Queso, pollo, champiñón, cebolla, pimentón y finas hierbas",
+          "image": "assets/images/lp-la-perra.jpg",
+          "sizes": [
+            { "id": "porcion", "label": "Porción", "price": 9000 },
+            { "id": "22cm", "label": "22cm", "price": 19000 },
+            { "id": "30cm", "label": "30cm", "price": 22000 },
+            { "id": "40cm", "label": "40cm", "price": 28000 }
+          ]
         }
       ]
     }
