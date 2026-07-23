@@ -14,28 +14,48 @@ const currency = new Intl.NumberFormat("es-CO", {
   maximumFractionDigits: 0,
 });
 
+/** Devuelve las variantes de tamaño de un producto, o `null` si tiene precio único. */
+const sizesOf = (item) => (item.sizes?.length ? item.sizes : null);
+
+/** Resuelve la variante de tamaño elegida (o la primera por defecto). */
+const resolveSize = (item, sizeId) => {
+  const sizes = sizesOf(item);
+  if (!sizes) return null;
+  return sizes.find((size) => size.id === sizeId) ?? sizes[0];
+};
+
+/** Precio unitario vigente para un producto + tamaño (o su precio fijo). */
+const unitPriceOf = (item, size) => size?.price ?? item.price;
+
+/** Clave única de línea de carrito: un mismo producto en tamaños distintos son líneas distintas. */
+const lineKey = (itemId, sizeId) => (sizeId ? `${itemId}::${sizeId}` : itemId);
+
 /** Carrito de compras en memoria, con persistencia opcional en localStorage. */
 class Cart {
-  #lines = new Map(); // itemId -> { item, qty }
+  #lines = new Map(); // "itemId" | "itemId::sizeId" -> { item, size, qty }
 
-  constructor(items = []) {
-    for (const { item, qty } of items) this.#lines.set(item.id, { item, qty });
+  constructor(entries = []) {
+    for (const { item, size, qty } of entries) {
+      this.#lines.set(lineKey(item.id, size?.id), { item, size, qty });
+    }
   }
 
-  add(item, delta = 1) {
-    const current = this.#lines.get(item.id)?.qty ?? 0;
+  add(item, delta = 1, sizeId = null) {
+    const size = sizeId ? resolveSize(item, sizeId) : null;
+    const key = lineKey(item.id, size?.id);
+    const current = this.#lines.get(key)?.qty ?? 0;
     const nextQty = Math.max(0, current + delta);
 
     if (nextQty === 0) {
-      this.#lines.delete(item.id);
+      this.#lines.delete(key);
     } else {
-      this.#lines.set(item.id, { item, qty: nextQty });
+      this.#lines.set(key, { item, size, qty: nextQty });
     }
     this.#persist();
   }
 
-  remove(itemId) {
-    this.#lines.delete(itemId);
+  remove(itemId, sizeId = null) {
+    this.#lines.delete(lineKey(itemId, sizeId));
     this.#persist();
   }
 
@@ -44,12 +64,17 @@ class Cart {
     this.#persist();
   }
 
-  qtyFor(itemId) {
-    return this.#lines.get(itemId)?.qty ?? 0;
+  qtyFor(itemId, sizeId = null) {
+    return this.#lines.get(lineKey(itemId, sizeId))?.qty ?? 0;
   }
 
   get lines() {
-    return [...this.#lines.values()];
+    return [...this.#lines.values()].map(({ item, size, qty }) => ({
+      item,
+      size,
+      qty,
+      unitPrice: unitPriceOf(item, size),
+    }));
   }
 
   get count() {
@@ -57,11 +82,15 @@ class Cart {
   }
 
   get total() {
-    return this.lines.reduce((sum, { item, qty }) => sum + item.price * qty, 0);
+    return this.lines.reduce((sum, { unitPrice, qty }) => sum + unitPrice * qty, 0);
   }
 
   #persist() {
-    const serializable = this.lines.map(({ item, qty }) => ({ id: item.id, qty }));
+    const serializable = [...this.#lines.values()].map(({ item, size, qty }) => ({
+      id: item.id,
+      sizeId: size?.id ?? null,
+      qty,
+    }));
     localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(serializable));
   }
 
@@ -71,10 +100,15 @@ class Cart {
 
     try {
       const saved = JSON.parse(raw);
-      const items = saved
-        .map(({ id, qty }) => ({ item: catalog.get(id), qty }))
-        .filter(({ item }) => item != null);
-      return new Cart(items);
+      const entries = saved
+        .map(({ id, sizeId, qty }) => {
+          const item = catalog.get(id);
+          if (!item) return null;
+          const size = sizeId ? resolveSize(item, sizeId) : null;
+          return { item, size, qty };
+        })
+        .filter((entry) => entry != null);
+      return new Cart(entries);
     } catch {
       return new Cart();
     }
@@ -87,9 +121,10 @@ const buildWhatsAppMessage = ({ cart, customerName, customerNote, restaurantName
   const nameLine = customerName ? `👤 Nombre: ${customerName}` : null;
   const noteLine = customerNote ? `📍 Nota: ${customerNote}` : null;
 
-  const itemLines = cart.lines.map(({ item, qty }) => {
-    const subtotal = currency.format(item.price * qty);
-    return `• ${qty} x ${item.name} — ${subtotal}`;
+  const itemLines = cart.lines.map(({ item, size, qty, unitPrice }) => {
+    const subtotal = currency.format(unitPrice * qty);
+    const label = size ? `${item.name} (${size.label})` : item.name;
+    return `• ${qty} x ${label} — ${subtotal}`;
   });
 
   const totalLine = `*Total: ${currency.format(cart.total)}*`;
@@ -166,11 +201,11 @@ const renderMenu = (categories, { onQtyChange, qtyFor }) => {
 
 const renderItemCard = (item, { onQtyChange, qtyFor }) => {
   const node = els.template.content.firstElementChild.cloneNode(true);
+  const sizes = sizesOf(item);
 
   node.querySelector(".item-name").textContent = item.name;
   node.querySelector(".item-desc").textContent = item.description ?? "";
   node.querySelector(".item-badge").textContent = item.badge ?? "";
-  node.querySelector(".item-price").textContent = currency.format(item.price);
 
   const img = node.querySelector(".item-img");
   if (item.image) {
@@ -181,21 +216,57 @@ const renderItemCard = (item, { onQtyChange, qtyFor }) => {
     img.dataset.broken = "true";
   }
 
+  const priceEl = node.querySelector(".item-price");
   const qtyValue = node.querySelector(".qty-value");
-  const syncQty = () => {
-    const qty = qtyFor(item.id);
+  const pillsEl = node.querySelector(".size-pills");
+
+  // Tamaño activo de la tarjeta (solo aplica a productos con variantes, p. ej. pizzas).
+  let activeSizeId = sizes?.[0]?.id ?? null;
+
+  const syncDisplay = () => {
+    const activeSize = sizes ? resolveSize(item, activeSizeId) : null;
+    priceEl.textContent = currency.format(unitPriceOf(item, activeSize));
+
+    const qty = qtyFor(item.id, activeSize?.id ?? null);
     qtyValue.textContent = String(qty);
     qtyValue.dataset.zero = qty === 0 ? "true" : "false";
+
+    if (sizes) {
+      pillsEl.querySelectorAll(".size-pill").forEach((pill) => {
+        pill.classList.toggle("is-active", pill.dataset.sizeId === activeSize?.id);
+        pill.setAttribute("aria-checked", String(pill.dataset.sizeId === activeSize?.id));
+      });
+    }
   };
-  syncQty();
+
+  if (sizes) {
+    pillsEl.hidden = false;
+    pillsEl.innerHTML = sizes
+      .map(
+        (size) => `
+        <button type="button" class="size-pill" role="radio" data-size-id="${size.id}">
+          ${size.label}
+        </button>`
+      )
+      .join("");
+
+    pillsEl.addEventListener("click", (event) => {
+      const pill = event.target.closest(".size-pill");
+      if (!pill) return;
+      activeSizeId = pill.dataset.sizeId;
+      syncDisplay();
+    });
+  }
+
+  syncDisplay();
 
   node.querySelector(".qty-minus").addEventListener("click", () => {
-    onQtyChange(item, -1);
-    syncQty();
+    onQtyChange(item, -1, activeSizeId);
+    syncDisplay();
   });
   node.querySelector(".qty-plus").addEventListener("click", () => {
-    onQtyChange(item, 1);
-    syncQty();
+    onQtyChange(item, 1, activeSizeId);
+    syncDisplay();
   });
 
   node.dataset.itemId = item.id;
@@ -212,19 +283,20 @@ const renderCart = (cart) => {
   els.cartEmpty.hidden = cart.count > 0;
 
   els.cartItems.innerHTML = cart.lines
-    .map(
-      ({ item, qty }) => `
-      <li class="cart-line" data-item-id="${item.id}">
+    .map(({ item, size, qty, unitPrice }) => {
+      const name = size ? `${item.name} <span class="cart-line-size">(${size.label})</span>` : item.name;
+      return `
+      <li class="cart-line" data-item-id="${item.id}" data-size-id="${size?.id ?? ""}">
         <div>
-          <div class="cart-line-name">${item.name}</div>
+          <div class="cart-line-name">${name}</div>
           <div class="cart-line-meta">
-            <span>${qty} x ${currency.format(item.price)}</span>
-            <button class="cart-line-remove" type="button" data-remove="${item.id}">quitar</button>
+            <span>${qty} x ${currency.format(unitPrice)}</span>
+            <button class="cart-line-remove" type="button" data-remove="${item.id}" data-size="${size?.id ?? ""}">quitar</button>
           </div>
         </div>
-        <span class="cart-line-price">${currency.format(item.price * qty)}</span>
-      </li>`
-    )
+        <span class="cart-line-price">${currency.format(unitPrice * qty)}</span>
+      </li>`;
+    })
     .join("");
 };
 
@@ -268,12 +340,15 @@ const init = async () => {
   const cart = Cart.restore(catalog);
 
   const refresh = () => {
-    renderMenu(categories, { onQtyChange: handleQtyChange, qtyFor: (id) => cart.qtyFor(id) });
+    renderMenu(categories, {
+      onQtyChange: handleQtyChange,
+      qtyFor: (id, sizeId) => cart.qtyFor(id, sizeId),
+    });
     renderCart(cart);
   };
 
-  function handleQtyChange(item, delta) {
-    cart.add(item, delta);
+  function handleQtyChange(item, delta, sizeId) {
+    cart.add(item, delta, sizeId);
     renderCart(cart);
   }
 
@@ -297,7 +372,8 @@ const init = async () => {
   els.cartItems.addEventListener("click", (event) => {
     const removeId = event.target?.dataset?.remove;
     if (!removeId) return;
-    cart.remove(removeId);
+    const sizeId = event.target.dataset.size || null;
+    cart.remove(removeId, sizeId);
     refresh();
   });
 
