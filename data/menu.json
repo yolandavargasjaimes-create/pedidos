@@ -10,24 +10,24 @@
       "name": "Entradas",
       "items": [
         {
-          "id": "p-enchuladas",
+          "id": "e-enchuladas",
           "name": "Papitas Enchuladas",
-          "price": 13000,
-          "description": "Pan brioche, lechuga, cebolla, tomate, carne, jamón, queso, papa fósforito, papa a la francesa",
+          "price": 11900,
+          "description": "Papas a al francesa con queso semisaldado tocineta crispy y salsa cheddar ",
           "image": "assets/images/h-sencilla.jpg"
         },
         {
-          "id": "h-mixta",
-          "name": "Mixta",
-          "price": 16000,
-          "description": "Pan brioche, lechuga, cebolla, tomate, carne, jamón, queso, pollo desmechado, papa fósforito, papa a la francesa",
+          "id": "e-aros",
+          "name": "Aros de Cebolla",
+          "price": 10900,
+          "description": "Aros de cebolla x6 acompañados salsa tartara y queso semisaldado",
           "image": "assets/images/h-mixta.jpg"
         },
         {
-          "id": "h-chavito",
-          "name": "Chavito",
-          "price": 17000,
-          "description": "Pan brioche, lechuga, aros de cebolla, tomate, carne, jamón, queso, chorizo paisa, picante, salsa picante",
+          "id": "h-nacho",
+          "name": "Nachos",
+          "price": 5900,
+          "description": "Nachos acompañados de salsa cheddar",
           "image": "assets/images/h-chavito.jpg"
         }
       ]
@@ -42,10 +42,10 @@
           "description": "Queso, piña, ciruelas, brevas y cerezas",
           "image": "assets/images/e-campeona.jpg",
           "sizes": [
-            { "id": "porcion", "label": "Porción", "price": 8000 },
-            { "id": "22cm", "label": "22cm", "price": 18000 },
-            { "id": "30cm", "label": "30cm", "price": 20000 },
-            { "id": "40cm", "label": "40cm", "price": 26000 }
+            { "id": "porcion", "label": "Porción", "price": 13500 },
+            { "id": "22cm", "label": "22cm", "price": 21500 },
+            { "id": "30cm", "label": "30cm", "price": 39900 },
+            { "id": "40cm", "label": "40cm", "price": 66900 }
           ]
         },
         {
@@ -54,10 +54,10 @@
           "description": "Queso, carne molida, maíz tierno, tocineta y salsa BBQ",
           "image": "assets/images/e-mega.jpg",
           "sizes": [
-            { "id": "porcion", "label": "Porción", "price": 9000 },
-            { "id": "22cm", "label": "22cm", "price": 20000 },
-            { "id": "30cm", "label": "30cm", "price": 23000 },
-            { "id": "40cm", "label": "40cm", "price": 29000 }
+            { "id": "porcion", "label": "Porción", "price": 13500 },
+            { "id": "22cm", "label": "22cm", "price": 21500 },
+            { "id": "30cm", "label": "30cm", "price": 39900 },
+            { "id": "40cm", "label": "40cm", "price": 66900 }
           ]
         },
         {
@@ -66,10 +66,10 @@
           "description": "Queso, jamón, salami, pollo, cabano, tocineta, cebolla y pimentón",
           "image": "assets/images/e-mega.jpg",
           "sizes": [
-            { "id": "porcion", "label": "Porción", "price": 9000 },
-            { "id": "22cm", "label": "22cm", "price": 20000 },
-            { "id": "30cm", "label": "30cm", "price": 23000 },
-            { "id": "40cm", "label": "40cm", "price": 29000 }
+            { "id": "porcion", "label": "Porción", "price": 13500 },
+            { "id": "22cm", "label": "22cm", "price": 21500 },
+            { "id": "30cm", "label": "30cm", "price": 39900 },
+            { "id": "40cm", "label": "40cm", "price": 66900 }
           ]
         },
         {
@@ -78,10 +78,10 @@
           "description": "Queso, jamón, salami, pollo, cabano, tocineta, cebolla y pimentón",
           "image": "assets/images/e-mega.jpg",
           "sizes": [
-            { "id": "porcion", "label": "Porción", "price": 9000 },
-            { "id": "22cm", "label": "22cm", "price": 20000 },
-            { "id": "30cm", "label": "30cm", "price": 23000 },
-            { "id": "40cm", "label": "40cm", "price": 29000 }
+            { "id": "porcion", "label": "Porción", "price": 13500 },
+            { "id": "22cm", "label": "22cm", "price": 21500 },
+            { "id": "30cm", "label": "30cm", "price": 39900 },
+            { "id": "40cm", "label": "40cm", "price": 66900 }
           ]
         },
         {
@@ -90,10 +90,10 @@
           "description": "Queso, jamón, salami, pollo, cabano, tocineta, cebolla y pimentón",
           "image": "assets/images/e-mega.jpg",
           "sizes": [
-            { "id": "porcion", "label": "Porción", "price": 9000 },
-            { "id": "22cm", "label": "22cm", "price": 20000 },
-            { "id": "30cm", "label": "30cm", "price": 23000 },
-            { "id": "40cm", "label": "40cm", "price": 29000 }
+            { "id": "porcion", "label": "Porción", "price": 14500 },
+            { "id": "22cm", "label": "22cm", "price": 22900 },
+            { "id": "30cm", "label": "30cm", "price": 40900 },
+            { "id": "40cm", "label": "40cm", "price": 72900 }
           ]
         },
         {
@@ -102,10 +102,10 @@
           "description": "Queso, carne desmechada, cabano, maíz tierno, tocineta y maduritos",
           "image": "assets/images/e-mega.jpg",
           "sizes": [
-            { "id": "porcion", "label": "Porción", "price": 9000 },
-            { "id": "22cm", "label": "22cm", "price": 20000 },
-            { "id": "30cm", "label": "30cm", "price": 23000 },
-            { "id": "40cm", "label": "40cm", "price": 29000 }
+            { "id": "porcion", "label": "Porción", "price": 14500 },
+            { "id": "22cm", "label": "22cm", "price": 22900 },
+            { "id": "30cm", "label": "30cm", "price": 40900 },
+            { "id": "40cm", "label": "40cm", "price": 72900 }
           ]
         },
         {
@@ -114,10 +114,10 @@
           "description": "Queso, Pepperoni, trocitos de piña y tocineta crispy",
           "image": "assets/images/e-mega.jpg",
           "sizes": [
-            { "id": "porcion", "label": "Porción", "price": 9000 },
-            { "id": "22cm", "label": "22cm", "price": 20000 },
-            { "id": "30cm", "label": "30cm", "price": 23000 },
-            { "id": "40cm", "label": "40cm", "price": 29000 }
+            { "id": "porcion", "label": "Porción", "price": 14500 },
+            { "id": "22cm", "label": "22cm", "price": 22900 },
+            { "id": "30cm", "label": "30cm", "price": 40900 },
+            { "id": "40cm", "label": "40cm", "price": 72900 }
           ]
         },
         {
@@ -126,10 +126,10 @@
           "description": "Queso, carne desmechada, cabano, maíz tierno, tocineta y maduritos",
           "image": "assets/images/e-mega.jpg",
           "sizes": [
-            { "id": "porcion", "label": "Porción", "price": 9000 },
-            { "id": "22cm", "label": "22cm", "price": 20000 },
-            { "id": "30cm", "label": "30cm", "price": 23000 },
-            { "id": "40cm", "label": "40cm", "price": 29000 }
+            { "id": "porcion", "label": "Porción", "price": 14500 },
+            { "id": "22cm", "label": "22cm", "price": 22900 },
+            { "id": "30cm", "label": "30cm", "price": 40900 },
+            { "id": "40cm", "label": "40cm", "price": 72900 }
           ]
         },
         {
@@ -138,10 +138,10 @@
           "description": "Queso, carne desmechada, chorizo santarosano, mermelada de tocineta y queso crema",
           "image": "assets/images/e-mega.jpg",
           "sizes": [
-            { "id": "porcion", "label": "Porción", "price": 9000 },
-            { "id": "22cm", "label": "22cm", "price": 20000 },
-            { "id": "30cm", "label": "30cm", "price": 23000 },
-            { "id": "40cm", "label": "40cm", "price": 29000 }
+            { "id": "porcion", "label": "Porción", "price": 14500 },
+            { "id": "22cm", "label": "22cm", "price": 22900 },
+            { "id": "30cm", "label": "30cm", "price": 40900 },
+            { "id": "40cm", "label": "40cm", "price": 72900 }
           ]
         }
       ]
@@ -156,10 +156,10 @@
           "description": "Queso, piña y jamón",
           "image": "assets/images/p-sencillo.jpg",
           "sizes": [
-            { "id": "porcion", "label": "Porción", "price": 6000 },
-            { "id": "22cm", "label": "22cm", "price": 11000 },
-            { "id": "30cm", "label": "30cm", "price": 13000 },
-            { "id": "40cm", "label": "40cm", "price": 17000 }
+            { "id": "porcion", "label": "Porción", "price": 11500 },
+            { "id": "22cm", "label": "22cm", "price": 18900 },
+            { "id": "30cm", "label": "30cm", "price": 35900 },
+            { "id": "40cm", "label": "40cm", "price": 59900 }
           ]
         },
         {
@@ -168,10 +168,10 @@
           "description": "Queso, tomate y orégano",
           "image": "assets/images/p-chompiperro.jpg",
           "sizes": [
-            { "id": "porcion", "label": "Porción", "price": 8000 },
-            { "id": "22cm", "label": "22cm", "price": 15000 },
-            { "id": "30cm", "label": "30cm", "price": 18000 },
-            { "id": "40cm", "label": "40cm", "price": 23000 }
+            { "id": "porcion", "label": "Porción", "price": 11500 },
+            { "id": "22cm", "label": "22cm", "price": 18900 },
+            { "id": "30cm", "label": "30cm", "price": 35900 },
+            { "id": "40cm", "label": "40cm", "price": 59900 }
           ]
         },
         {
@@ -187,10 +187,10 @@
           "description": "Queso y bocadillo",
           "image": "assets/images/p-americano.jpg",
           "sizes": [
-            { "id": "porcion", "label": "Porción", "price": 8000 },
-            { "id": "22cm", "label": "22cm", "price": 16000 },
-            { "id": "30cm", "label": "30cm", "price": 19000 },
-            { "id": "40cm", "label": "40cm", "price": 24000 }
+            { "id": "porcion", "label": "Porción", "price": 11500 },
+            { "id": "22cm", "label": "22cm", "price": 18900 },
+            { "id": "30cm", "label": "30cm", "price": 35900 },
+            { "id": "40cm", "label": "40cm", "price": 59900 }
           ]
         },
         {
@@ -199,10 +199,10 @@
           "description": "Queso, champiñón y pollo",
           "image": "assets/images/p-americano.jpg",
           "sizes": [
-            { "id": "porcion", "label": "Porción", "price": 8000 },
-            { "id": "22cm", "label": "22cm", "price": 16000 },
-            { "id": "30cm", "label": "30cm", "price": 19000 },
-            { "id": "40cm", "label": "40cm", "price": 24000 }
+            { "id": "porcion", "label": "Porción", "price": 11500 },
+            { "id": "22cm", "label": "22cm", "price": 18900 },
+            { "id": "30cm", "label": "30cm", "price": 35900 },
+            { "id": "40cm", "label": "40cm", "price": 59900 }
           ]
         },
         {
@@ -211,10 +211,10 @@
           "description": "Queso, salami, jamón y cábano",
           "image": "assets/images/p-americano.jpg",
           "sizes": [
-            { "id": "porcion", "label": "Porción", "price": 8000 },
-            { "id": "22cm", "label": "22cm", "price": 16000 },
-            { "id": "30cm", "label": "30cm", "price": 19000 },
-            { "id": "40cm", "label": "40cm", "price": 24000 }
+            { "id": "porcion", "label": "Porción", "price": 11500 },
+            { "id": "22cm", "label": "22cm", "price": 18900 },
+            { "id": "30cm", "label": "30cm", "price": 35900 },
+            { "id": "40cm", "label": "40cm", "price": 59900 }
           ]
         }
       ]
@@ -229,10 +229,10 @@
           "description": "Queso, jamón, salami, pollo y piña",
           "image": "assets/images/lp-la-perra.jpg",
           "sizes": [
-            { "id": "porcion", "label": "Porción", "price": 9000 },
-            { "id": "22cm", "label": "22cm", "price": 19000 },
-            { "id": "30cm", "label": "30cm", "price": 22000 },
-            { "id": "40cm", "label": "40cm", "price": 28000 }
+            { "id": "porcion", "label": "Porción", "price": 12500 },
+            { "id": "22cm", "label": "22cm", "price": 20500 },
+            { "id": "30cm", "label": "30cm", "price": 36900 },
+            { "id": "40cm", "label": "40cm", "price": 64900 }
           ]
         },
         {
@@ -241,10 +241,10 @@
           "description": "Queso, pollo y tocineta",
           "image": "assets/images/lp-la-perra.jpg",
           "sizes": [
-            { "id": "porcion", "label": "Porción", "price": 9000 },
-            { "id": "22cm", "label": "22cm", "price": 19000 },
-            { "id": "30cm", "label": "30cm", "price": 22000 },
-            { "id": "40cm", "label": "40cm", "price": 28000 }
+            { "id": "porcion", "label": "Porción", "price": 12500 },
+            { "id": "22cm", "label": "22cm", "price": 20500 },
+            { "id": "30cm", "label": "30cm", "price": 36900 },
+            { "id": "40cm", "label": "40cm", "price": 64900 }
           ]
         },
         {
@@ -253,10 +253,10 @@
           "description": "Queso, carne desmechada, salami, tomate, pimentón y picante",
           "image": "assets/images/lp-la-perra.jpg",
           "sizes": [
-            { "id": "porcion", "label": "Porción", "price": 9000 },
-            { "id": "22cm", "label": "22cm", "price": 19000 },
-            { "id": "30cm", "label": "30cm", "price": 22000 },
-            { "id": "40cm", "label": "40cm", "price": 28000 }
+            { "id": "porcion", "label": "Porción", "price": 12500 },
+            { "id": "22cm", "label": "22cm", "price": 20500 },
+            { "id": "30cm", "label": "30cm", "price": 36900 },
+            { "id": "40cm", "label": "40cm", "price": 64900 }
           ]
         },
         {
@@ -265,10 +265,10 @@
           "description": "Queso, carne molida, nachos, cebolla, pimentón, perejil y picante",
           "image": "assets/images/lp-la-perra.jpg",
           "sizes": [
-            { "id": "porcion", "label": "Porción", "price": 9000 },
-            { "id": "22cm", "label": "22cm", "price": 19000 },
-            { "id": "30cm", "label": "30cm", "price": 22000 },
-            { "id": "40cm", "label": "40cm", "price": 28000 }
+            { "id": "porcion", "label": "Porción", "price": 12500 },
+            { "id": "22cm", "label": "22cm", "price": 20500 },
+            { "id": "30cm", "label": "30cm", "price": 36900 },
+            { "id": "40cm", "label": "40cm", "price": 64900 }
           ]
         },
         {
@@ -277,10 +277,10 @@
           "description": "Queso, champiñón, tomate, cebolla, pimentón, perejil y finas hierbas",
           "image": "assets/images/lp-la-perra.jpg",
           "sizes": [
-            { "id": "porcion", "label": "Porción", "price": 9000 },
-            { "id": "22cm", "label": "22cm", "price": 19000 },
-            { "id": "30cm", "label": "30cm", "price": 22000 },
-            { "id": "40cm", "label": "40cm", "price": 28000 }
+            { "id": "porcion", "label": "Porción", "price": 12500 },
+            { "id": "22cm", "label": "22cm", "price": 20500 },
+            { "id": "30cm", "label": "30cm", "price": 36900 },
+            { "id": "40cm", "label": "40cm", "price": 64900 }
           ]
         },
         {
@@ -289,10 +289,10 @@
           "description": "Queso, pollo, champiñón, cebolla, pimentón y finas hierbas",
           "image": "assets/images/lp-la-perra.jpg",
           "sizes": [
-            { "id": "porcion", "label": "Porción", "price": 9000 },
-            { "id": "22cm", "label": "22cm", "price": 19000 },
-            { "id": "30cm", "label": "30cm", "price": 22000 },
-            { "id": "40cm", "label": "40cm", "price": 28000 }
+            { "id": "porcion", "label": "Porción", "price": 12500 },
+            { "id": "22cm", "label": "22cm", "price": 20500 },
+            { "id": "30cm", "label": "30cm", "price": 36900 },
+            { "id": "40cm", "label": "40cm", "price": 64900 }
           ]
         }
       ]
