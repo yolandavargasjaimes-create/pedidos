@@ -1,6 +1,6 @@
 {
-  "name": "Chespirito Burger's",
-  "short_name": "Chespirito",
+  "name": "Stay Fresko",
+  "short_name": "StayFresko",
   "description": "Arma tu pedido y lo enviamos directo por WhatsApp.",
   "start_url": "./",
   "display": "standalone",
