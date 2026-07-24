@@ -351,7 +351,7 @@ button { font-family: inherit; }
 }
 
 .item-price {
-  font-size: 1.05rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: var(--primary);
   font-variant-numeric: tabular-nums;
@@ -360,7 +360,7 @@ button { font-family: inherit; }
 .qty-control {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 14px;
   background: var(--charcoal);
   border: 1px solid var(--line);
   border-radius: 999px;
@@ -384,9 +384,11 @@ button { font-family: inherit; }
 .qty-btn:active { transform: scale(0.92); }
 
 .qty-value {
-  min-width: 1.4em;
+  min-width: 16px;
+  font-size: 1.3rem;
   text-align: center;
   font-weight: 700;
+  text-align: center;
   font-variant-numeric: tabular-nums;
 }
 
