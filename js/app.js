@@ -8,6 +8,14 @@ import { buildOrderReceipt, printViaRawBT, isAndroid } from "./receipt.js";
 const MENU_URL = "./data/menu.json";
 const CART_STORAGE_KEY = "chespirito:cart";
 
+/** Imagen referencial por tamaño de pizza (no es la foto real del producto, solo ilustra el tamaño). */
+const SIZE_IMAGES = Object.freeze({
+  porcion: "./assets/images/sizes/porcion.jpg",
+  "22cm": "./assets/images/sizes/22cm.jpg",
+  "30cm": "./assets/images/sizes/30cm.jpg",
+  "40cm": "./assets/images/sizes/40cm.jpg",
+});
+
 const currency = new Intl.NumberFormat("es-CO", {
   style: "currency",
   currency: "COP",
@@ -211,7 +219,7 @@ const renderItemCard = (item, { onQtyChange, qtyFor }) => {
   if (item.image) {
     img.src = item.image;
     img.alt = item.name;
-    img.addEventListener("error", () => { img.dataset.broken = "true"; }, { once: true });
+    img.addEventListener("error", () => { img.dataset.broken = "true"; });
   } else {
     img.dataset.broken = "true";
   }
@@ -222,6 +230,9 @@ const renderItemCard = (item, { onQtyChange, qtyFor }) => {
 
   // Tamaño activo de la tarjeta (solo aplica a productos con variantes, p. ej. pizzas).
   let activeSizeId = sizes?.[0]?.id ?? null;
+  // La imagen de tamaño solo se muestra tras un click explícito del usuario;
+  // mientras tanto se ve la foto real del producto.
+  let sizeImagePicked = false;
 
   const syncDisplay = () => {
     const activeSize = sizes ? resolveSize(item, activeSizeId) : null;
@@ -236,6 +247,15 @@ const renderItemCard = (item, { onQtyChange, qtyFor }) => {
         pill.classList.toggle("is-active", pill.dataset.sizeId === activeSize?.id);
         pill.setAttribute("aria-checked", String(pill.dataset.sizeId === activeSize?.id));
       });
+
+      const nextSrc = sizeImagePicked
+        ? (SIZE_IMAGES[activeSize?.id] ?? item.image)
+        : item.image;
+
+      if (img.getAttribute("src") !== nextSrc) {
+        img.src = nextSrc;
+        delete img.dataset.broken;
+      }
     }
   };
 
@@ -254,6 +274,7 @@ const renderItemCard = (item, { onQtyChange, qtyFor }) => {
       const pill = event.target.closest(".size-pill");
       if (!pill) return;
       activeSizeId = pill.dataset.sizeId;
+      sizeImagePicked = true;
       syncDisplay();
     });
   }
