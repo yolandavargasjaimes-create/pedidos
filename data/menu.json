@@ -166,7 +166,7 @@
           "id": "p-napolitana",
           "name": "NAPOLITANA",
           "description": "Queso, tomate y orégano",
-          "image": "assets/images/p-chompiperro.jpg",
+          "image": "assets/images/p-napolitana.jpg",
           "sizes": [
             { "id": "porcion", "label": "Porción", "price": 11500 },
             { "id": "22cm", "label": "22cm", "price": 18900 },
